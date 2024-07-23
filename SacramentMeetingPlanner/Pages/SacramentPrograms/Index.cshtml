@@ -1,0 +1,116 @@
+﻿@page
+@model SacramentMeetingPlanner.Pages.SacramentPrograms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="my-4 text-center">Sacrament Meeting Planner</h1>
+
+<div class="container">
+    <div class="d-flex align-items-center mb-4">
+        <a asp-page="Create" class="btn btn-primary">Add New Meeting</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover mt-4 table-fixed small-table">
+            <thead class="table-dark custom-header">
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].MeetingDate)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].ConductingLeader)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].OpeningSong)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].OpeningPrayer)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].SacramentHymn)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].Speaker1)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].Speaker1Subject)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].Speaker2)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].Speaker2Subject)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].Speaker3)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].Speaker3Subject)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].ClosingSong)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.SacramentProgram[0].ClosingPrayer)
+                    </th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SacramentProgram)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MeetingDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConductingLeader)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeningSong)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeningPrayer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SacramentHymn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Speaker1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Speaker1Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Speaker2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Speaker2Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Speaker3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Speaker3Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClosingSong)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClosingPrayer)
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm  me-2">Edit</a>
+                                <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm  me-2">Details</a>
+                                <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

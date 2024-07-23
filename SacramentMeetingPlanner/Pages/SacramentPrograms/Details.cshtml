@@ -1,0 +1,119 @@
+﻿@page "{id:int}"
+@model SacramentMeetingPlanner.Pages.SacramentPrograms.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center my-0">Details</h1>
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-end mb-2">
+            <button type="button" class="btn btn-success" onclick="printDiv('printableArea')">Print</button>
+        </div>
+        <div id="printableArea">
+            <h4 class="text-center mb-4">Sacrament Meeting Program</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.MeetingDate)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.MeetingDate)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.ConductingLeader)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.ConductingLeader)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.OpeningSong)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.OpeningSong)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.OpeningPrayer)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.OpeningPrayer)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.SacramentHymn)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.SacramentHymn)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.Speaker1)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.Speaker1)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.Speaker1Subject)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.Speaker1Subject)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.Speaker2)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.Speaker2)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.Speaker2Subject)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.Speaker2Subject)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.Speaker3)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.Speaker3)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.Speaker3Subject)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.Speaker3Subject)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.ClosingSong)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.ClosingSong)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.SacramentProgram.ClosingPrayer)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.SacramentProgram.ClosingPrayer)
+                </dd>
+            </dl>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+            <a asp-page="./Edit" asp-route-id="@Model.SacramentProgram.Id" class="btn btn-warning">Edit</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+}
