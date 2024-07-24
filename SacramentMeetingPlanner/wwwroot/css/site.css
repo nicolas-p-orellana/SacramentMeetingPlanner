@@ -21,28 +21,28 @@ body {
   margin-bottom: 60px;
 }
 
-.table-fixed thead th {
-    width: 1px;
-    white-space: nowrap;
-}
-
-.table-fixed tbody td {
-    white-space: nowrap;
-}
-
 .custom-header th {
     background-color: navy;
     color: white;
 }
 
+.btn-group {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
 .btn-group .btn {
     margin-right: 0.5rem;
+    width: 60px;
+    height: 30px;
 }
 
 .small-table {
     font-size: 13px;
 }
 
-.small-table th, .small-table td {
-    padding: 0px 5px;
+.small-table td {
+    padding: 2px 5px;
 }
